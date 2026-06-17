@@ -2,7 +2,7 @@
 
 An AI-powered phishing email detection web app that analyzes emails across 4 independent layers using machine learning and heuristic analysis.
 
-[View Live Demo](#) <!-- update this once deployed -->
+[View Live Demo](https://phish-guard-o0fi.onrender.com)
 
 ## Tech Stack
 - Python
