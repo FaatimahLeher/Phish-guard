@@ -1,4 +1,4 @@
-#PhishGuard — Phishing Email Detector
+# PhishGuard — Phishing Email Detector
 
 An AI-powered phishing email detection web app that analyzes emails across 4 independent layers using machine learning and heuristic analysis.
 
