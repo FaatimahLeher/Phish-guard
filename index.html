@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishGuard — Phishing Email Detector</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav class="navbar">
+      <div class="nav-logo"> PhishGuard</div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#analyzer">Analyzer</a>
+        <a href="#how">How It Works</a>
+        <a href="#analyzer" class="nav-cta">Try Now</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <div class="hero-badge">AI-Powered Security</div>
+        <h1>Detect <span class="accent">Phishing</span><br/>Emails Instantly</h1>
+        <p class="hero-sub">PhishGuard uses machine learning and multi-layer heuristic analysis to identify phishing attempts before they reach you.</p>
+        <div class="hero-buttons">
+          <a href="#analyzer" class="btn-primary">Analyze an Email</a>
+          <a href="#how" class="btn-ghost">How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>97%</strong>
+            <span>ML Accuracy</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>4</strong>
+            <span>Detection Layers</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>18k+</strong>
+            <span>Emails Trained</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-wrap">
+          <img src="Phishing-image-orange.jpg" alt="Phishing detection" class="hero-img" />
+          <div class="hero-badge-float badge-red">Phishing Detected</div>
+          <div class="hero-badge-float badge-green">Safe Email</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+      <h2>How It Works</h2>
+      <p class="section-sub">Four independent layers analyze every email simultaneously</p>
+      <div class="how-grid">
+        <div class="how-card gradient-card" style="background:linear-gradient(135deg,#f97316,#f59e0b);border:none">
+          <div class="how-icon" style="background:rgba(255,255,255,0.25);color:#fff">📨</div>
+          <h3 style="color:#fff">Header Analysis</h3>
+          <p style="color:rgba(255,255,255,0.8)">Checks sender vs Reply-To domain mismatches and display name spoofing.</p>
+        </div>
+        <div class="how-card gradient-card" style="background:linear-gradient(135deg,#6d28d9,#4f46e5);border:none">
+          <div class="how-icon" style="background:rgba(255,255,255,0.25);color:#fff">🔗</div>
+          <h3 style="color:#fff">URL Analysis</h3>
+          <p style="color:rgba(255,255,255,0.8)">Scans links for suspicious TLDs, IP addresses, and URL shorteners.</p>
+        </div>
+        <div class="how-card gradient-card" style="background:linear-gradient(135deg,#2563eb,#06b6d4);border:none">
+          <div class="how-icon" style="background:rgba(255,255,255,0.25);color:#fff">📋</div>
+          <h3 style="color:#fff">Content Heuristics</h3>
+          <p style="color:rgba(255,255,255,0.8)">Detects urgent language, sensitive data requests, and reward lures.</p>
+        </div>
+        <div class="how-card gradient-card" style="background:linear-gradient(135deg,#e11d48,#a21caf);border:none">
+          <div class="how-icon" style="background:rgba(255,255,255,0.25);color:#fff">🤖</div>
+          <h3 style="color:#fff">ML Classifier</h3>
+          <p style="color:rgba(255,255,255,0.8)">Random Forest model trained on 18,000+ real phishing and safe emails.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYZER -->
+    <section class="analyzer-section" id="analyzer">
+      <div class="analyzer-header">
+        <h2>Email Analyzer</h2>
+        <p class="section-sub">Upload a .eml file or paste email details below</p>
+      </div>
+
+      <div class="analyzer">
+
+        <div class="card input-card">
+          <div class="card-title"><span>📧</span> Analyze an Email</div>
+
+          <div class="upload-zone" onclick="document.getElementById('emlUpload').click()">
+            <span class="upload-zone-icon">📎</span>
+            <div>
+              <p><strong>Drop a .eml file</strong> or click to upload</p>
+              <p class="upload-hint">Auto-fills all fields below instantly</p>
+            </div>
+            <input type="file" id="emlUpload" accept=".eml" style="display:none" />
+            <span id="uploadStatus"></span>
+          </div>
+          <div class="eml-tip">
+            <span class="eml-tip-icon">💡</span>
+            <div>
+              <strong>How to get a .eml file:</strong>
+              <span> In Gmail, open the email → click the </span><strong>three dots ⋮</strong><span> menu → select </span><strong>"Download message"</strong><span>. In Outlook, open the email → </span><strong>File → Save As</strong><span> → choose </span><strong>.eml format</strong><span>.</span>
+            </div>
+          </div>
+
+          <div class="or-divider"><span>or fill in manually</span></div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sender">Sender Address</label>
+              <input type="text" id="sender" placeholder="e.g. support@paypa1.com" />
+            </div>
+            <div class="form-group">
+              <label for="reply_to">Reply-To <span class="optional">(optional)</span></label>
+              <input type="text" id="reply_to" placeholder="e.g. harvester@gmail.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject Line</label>
+            <input type="text" id="subject" placeholder="e.g. Urgent: Your account has been suspended" />
+          </div>
+
+          <div class="form-group">
+            <label for="body">Email Body</label>
+            <textarea id="body" rows="6" placeholder="Paste the full email content here..."></textarea>
+          </div>
+
+          <button id="analyzeBtn"><span>🔍</span> Analyze Email</button>
+        </div>
+
+        <div class="card result-card" id="resultCard" style="display:none">
+          <div id="verdictBox" class="verdict-box">
+            <div class="verdict-icon" id="verdictIcon"></div>
+            <div>
+              <div class="verdict-label" id="verdictLabel"></div>
+              <div class="verdict-score" id="verdictScore"></div>
+            </div>
+            <div class="risk-meter">
+              <svg viewBox="0 0 120 60" class="gauge">
+                <path d="M10,55 A50,50 0 0,1 110,55" fill="none" stroke="#e8eaf0" stroke-width="10" stroke-linecap="round"/>
+                <path id="gaugeFill" d="M10,55 A50,50 0 0,1 110,55" fill="none" stroke="#e63946" stroke-width="10" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="157"/>
+              </svg>
+              <div class="gauge-label" id="gaugeLabel">0</div>
+            </div>
+          </div>
+
+          <div class="breakdown">
+            <div class="breakdown-title">Score Breakdown</div>
+            <div class="breakdown-grid" id="breakdownGrid"></div>
+          </div>
+
+          <div class="flags-section">
+            <div class="breakdown-title" id="flagsTitle"></div>
+            <div id="flagsList"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>🛡️ <strong>PhishGuard</strong> — Built with Python, Flask & Machine Learning</div>
+      <div class="footer-sub">For educational and portfolio purposes</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
