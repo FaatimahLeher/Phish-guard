@@ -1,13 +1,18 @@
 
-html, body {
+html {
   overflow-x: hidden;
-  width: 100%;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 html { 
@@ -235,17 +240,21 @@ body {
    HERO IMAGE
    ================================================================ */
 .hero-right {
-  flex: 0 0 auto;
+  flex: 0 1 420px;
   z-index: 1;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .hero-img-wrap {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
 }
 
 .hero-img {
-  width: clamp(200px, 30vw, 420px);
+  width: 100%;
+  max-width: 420px;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
