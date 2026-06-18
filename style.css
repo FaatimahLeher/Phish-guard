@@ -286,6 +286,13 @@ body {
   border: 1.5px solid #bbf7d0;
 }
 
+@media (max-width: 768px) {
+  .hero-img-wrap { display: flex; flex-direction: column; align-items: center; }
+  .badge-red { position: static; margin-bottom: 0.5rem; }
+  .badge-green { position: static; margin-top: 0.5rem; }
+  .hero-badge-float { display: inline-block; }
+}
+
 /* ================================================================
    HOW IT WORKS
    ================================================================ */
