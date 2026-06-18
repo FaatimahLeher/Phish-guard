@@ -1,3 +1,11 @@
+// ---- WAKE UP BACKEND ON PAGE LOAD ----
+
+fetch('/analyze', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ sender: '', reply_to: '', subject: 'ping', body: 'ping' })
+}).catch(() => {});
+
 // ---- NAVBAR SCROLL ----
 
 window.addEventListener('scroll', function () {
