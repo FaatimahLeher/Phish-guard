@@ -10,6 +10,7 @@ body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   background: #fff;
   color: #1a1a2e;
+  overflow-x: hidden;
 }
 
 /* ---- NAVBAR ---- */
@@ -713,23 +714,30 @@ button:disabled {
 
 /* ---- RESPONSIVE ---- */
 
-@media (max-width: 900px) {
-  .how-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+  .hero { padding: 7rem 3rem 4rem; gap: 2rem; }
+  .hero-left h1 { font-size: 2.8rem; }
+  .hero-img { width: 340px; }
+  .how { padding: 4rem 3rem; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Large mobile / small tablet: 600px - 768px */
+@media (max-width: 768px) {
+  .navbar { padding: 1rem 1.5rem; }
 
   .hero {
     flex-direction: column;
-    padding: 6rem 2.5rem 3rem;
+    padding: 6rem 2rem 3rem;
     text-align: center;
+    gap: 2rem;
   }
 
-  .hero-left { max-width: 100%; }
-
+  .hero-left { max-width: 100%; width: 100%; }
+  .hero-left h1 { font-size: 2.4rem; }
   .hero-sub { max-width: 100%; }
-
-  .hero-buttons { justify-content: center; }
-
+  .hero-buttons { justify-content: center; flex-wrap: wrap; }
   .hero-stats { justify-content: center; }
 
   .hero-right {
@@ -737,55 +745,72 @@ button:disabled {
     display: flex;
     justify-content: center;
   }
+  .hero-img { width: 280px; }
 
-  .hero-img { width: 300px; }
+  .how { padding: 3.5rem 2rem; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 
-  .navbar { padding: 1rem 2rem; }
+  .analyzer-section { padding: 3.5rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .card { padding: 1.6rem; }
 }
 
+/* Mobile: up to 600px */
 @media (max-width: 600px) {
-  .navbar { padding: 0.9rem 1.2rem; }
-
-  .nav-links { gap: 1rem; }
-
+  .navbar { padding: 0.85rem 1rem; }
+  .nav-logo { font-size: 0.95rem; }
+  .nav-links { gap: 0.6rem; }
   .nav-links a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 6px 14px; font-size: 0.8rem; }
 
   .hero {
     flex-direction: column;
-    padding: 5rem 1.2rem 2.5rem;
+    padding: 5.5rem 1.2rem 2.5rem;
     text-align: center;
+    gap: 1.5rem;
   }
-
+  .hero-left { width: 100%; max-width: 100%; }
+  .hero-left h1 { font-size: 2rem; line-height: 1.2; }
+  .hero-sub { font-size: 0.88rem; }
+  .hero-buttons { justify-content: center; flex-direction: column; align-items: center; gap: 0.8rem; }
+  .btn-primary, .btn-ghost { width: 100%; max-width: 280px; text-align: center; }
+  .hero-stats { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .stat strong { font-size: 1.3rem; }
   .hero-right { display: none; }
 
-  .hero-left h1 { font-size: 2.2rem; }
+  .how { padding: 3rem 1rem; }
+  .how-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .how-card { padding: 1.1rem 0.9rem; }
+  .how-card h3 { font-size: 0.82rem; }
+  .how-card p { font-size: 0.76rem; }
+  .how-icon { width: 36px; height: 36px; font-size: 1.1rem; }
 
-  .hero-buttons { justify-content: center; }
-
-  .hero-stats { justify-content: center; gap: 1.2rem; }
-
-  .stat strong { font-size: 1.3rem; }
-
-  .how { padding: 3rem 1.2rem; }
-
-  .how-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
-
-  .how-card { padding: 1.2rem 1rem; }
-
-  .analyzer-section { padding: 3rem 1rem; }
-
-  .card { padding: 1.4rem; }
-
+  .analyzer-section { padding: 2.5rem 1rem; }
+  .analyzer-header h2 { font-size: 1.6rem; }
+  .card { padding: 1.2rem; }
   .form-row { grid-template-columns: 1fr; }
 
-  .verdict-box { flex-wrap: wrap; }
+  .upload-zone { flex-direction: column; text-align: center; gap: 8px; padding: 1rem; }
+  .upload-zone-icon { font-size: 1.5rem; }
+  #uploadStatus { margin-left: 0; }
 
+  .eml-tip { font-size: 0.74rem; }
+
+  .verdict-box { flex-wrap: wrap; gap: 0.8rem; }
   .risk-meter { margin-left: 0; }
+  .verdict-label { font-size: 1.1rem; }
 
-  .breakdown-item { grid-template-columns: 80px 1fr 32px; }
+  .breakdown-item { grid-template-columns: 75px 1fr 30px; font-size: 0.76rem; }
+
+  .footer { padding: 1.5rem 1rem; font-size: 0.78rem; }
+}
+
+/* Very small phones: up to 380px */
+@media (max-width: 380px) {
+  .hero-left h1 { font-size: 1.75rem; }
+  .how-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 0.8rem; }
+  .stat-divider { display: none; }
 }
 
 /* ---- FOOTER ---- */
