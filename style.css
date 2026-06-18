@@ -724,9 +724,7 @@ button:disabled {
     text-align: center;
   }
 
-  .hero-left {
-    max-width: 100%;
-  }
+  .hero-left { max-width: 100%; }
 
   .hero-sub { max-width: 100%; }
 
@@ -734,7 +732,11 @@ button:disabled {
 
   .hero-stats { justify-content: center; }
 
-  .hero-right { width: 100%; display: flex; justify-content: center; }
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   .hero-img { width: 300px; }
 
@@ -749,16 +751,29 @@ button:disabled {
   .nav-links a:not(.nav-cta) { display: none; }
 
   .hero {
+    flex-direction: column;
     padding: 5rem 1.2rem 2.5rem;
+    text-align: center;
   }
+
+  .hero-right { display: none; }
 
   .hero-left h1 { font-size: 2.2rem; }
 
-  .hero-img { width: 240px; }
+  .hero-buttons { justify-content: center; }
+
+  .hero-stats { justify-content: center; gap: 1.2rem; }
+
+  .stat strong { font-size: 1.3rem; }
 
   .how { padding: 3rem 1.2rem; }
 
-  .how-grid { grid-template-columns: 1fr; }
+  .how-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .how-card { padding: 1.2rem 1rem; }
 
   .analyzer-section { padding: 3rem 1rem; }
 
@@ -766,19 +781,11 @@ button:disabled {
 
   .form-row { grid-template-columns: 1fr; }
 
-  .verdict-box {
-    flex-wrap: wrap;
-  }
+  .verdict-box { flex-wrap: wrap; }
 
   .risk-meter { margin-left: 0; }
 
-  .breakdown-item {
-    grid-template-columns: 80px 1fr 32px;
-  }
-
-  .hero-stats { gap: 1.2rem; }
-
-  .stat strong { font-size: 1.3rem; }
+  .breakdown-item { grid-template-columns: 80px 1fr 32px; }
 }
 
 /* ---- FOOTER ---- */
