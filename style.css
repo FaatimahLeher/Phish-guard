@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 html { scroll-behavior: smooth; }
@@ -120,6 +121,7 @@ body {
   flex: 1;
   z-index: 1;
   max-width: 540px;
+  min-width: 0;
 }
 
 .hero-badge {
@@ -297,6 +299,7 @@ body {
   gap: 1.4rem;
   max-width: 1000px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .how-card {
@@ -737,11 +740,21 @@ button:disabled {
 
 /* Mobile: hide image, collapse nav, single column cards */
 @media (max-width: 540px) {
+  .hero-badge-float { display: none; }
   .nav-links a:not(.nav-cta) { display: none; }
   .nav-links { gap: 0.8rem; }
 
-  .hero { text-align: center; }
-  .hero-right { display: none; }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-left {
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-right { display: none !important; }
   .hero-buttons {
     justify-content: center;
     flex-direction: column;
