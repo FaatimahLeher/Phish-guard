@@ -92,11 +92,13 @@ body {
   background: linear-gradient(135deg, #2d0060 0%, #5b21b6 35%, #4f46e5 65%, #2563eb 100%);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: clamp(5rem, 10vh, 7rem) clamp(1.5rem, 6vw, 5rem) clamp(3rem, 6vh, 4rem);
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: clamp(5rem, 10vh, 7rem) clamp(1.2rem, 5vw, 5rem) clamp(3rem, 6vh, 4rem);
   gap: clamp(1.5rem, 3vw, 3rem);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .hero::before {
@@ -118,7 +120,7 @@ body {
 }
 
 .hero-left {
-  flex: 1;
+  flex: 1 1 300px;
   z-index: 1;
   max-width: 540px;
   min-width: 0;
@@ -228,8 +230,9 @@ body {
 /* ---- HERO IMAGE ---- */
 
 .hero-right {
-  flex-shrink: 0;
+  flex: 0 1 420px;
   z-index: 1;
+  min-width: 0;
 }
 
 .hero-img-wrap {
@@ -717,69 +720,70 @@ button:disabled {
 
 /* ---- RESPONSIVE ---- */
 
-/* Tablet: stack how-it-works grid to 2 cols */
-@media (max-width: 900px) {
-  .how-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 960px) {
+  .how-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* Tablet portrait: stack hero */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
+  /* NAV */
+  .nav-links a:not(.nav-cta) { display: none; }
+
+  /* HERO — stack vertically */
   .hero {
     flex-direction: column;
+    justify-content: center;
     text-align: center;
-    min-height: auto;
-    padding-top: clamp(5rem, 12vh, 7rem);
+    padding: 6rem 1.5rem 3rem;
+    gap: 2rem;
+    min-height: 100svh;
   }
-  .hero-left { max-width: 100%; }
+  .hero-left { max-width: 100%; width: 100%; }
   .hero-sub { max-width: 100%; }
   .hero-buttons { justify-content: center; }
   .hero-stats { justify-content: center; }
-  .hero-right { width: 100%; display: flex; justify-content: center; }
+  .hero-badge-float { display: none; }
+
+  /* Show image below text on tablet */
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-img { width: 260px; }
+
+  /* FORM */
   .form-row { grid-template-columns: 1fr; }
 }
 
-/* Mobile: hide image, collapse nav, single column cards */
-@media (max-width: 540px) {
-  .hero-badge-float { display: none; }
-  .nav-links a:not(.nav-cta) { display: none; }
-  .nav-links { gap: 0.8rem; }
+@media (max-width: 480px) {
+  /* HERO — hide image on small phones */
+  .hero { padding: 5.5rem 1.2rem 2.5rem; }
+  .hero-right { display: none; }
+  .hero-left h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-ghost { width: 100%; max-width: 280px; text-align: center; }
+  .hero-stats { gap: 1rem; flex-wrap: wrap; }
 
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .hero-left {
-    width: 100%;
-    max-width: 100%;
-  }
-  .hero-right { display: none !important; }
-  .hero-buttons {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .btn-primary, .btn-ghost { width: 100%; max-width: 260px; text-align: center; }
-  .hero-stats { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  /* HOW IT WORKS */
+  .how-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .how-card { padding: 1rem 0.85rem; }
+  .how-card h3 { font-size: 0.82rem; }
+  .how-card p { font-size: 0.76rem; }
 
-  .how-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .how-card { padding: 1.1rem 0.9rem; }
-
+  /* ANALYZER */
   .card { padding: 1.2rem; }
-  .upload-zone { flex-direction: column; text-align: center; }
+  .upload-zone { flex-direction: column; text-align: center; padding: 1rem; }
   #uploadStatus { margin-left: 0; }
 
+  /* RESULTS */
   .verdict-box { flex-wrap: wrap; gap: 0.8rem; }
   .risk-meter { margin-left: 0; }
-  .breakdown-item { grid-template-columns: 75px 1fr 30px; }
+  .breakdown-item { grid-template-columns: 70px 1fr 30px; font-size: 0.78rem; }
 }
 
-/* Very small phones */
-@media (max-width: 380px) {
+@media (max-width: 360px) {
   .how-grid { grid-template-columns: 1fr; }
   .stat-divider { display: none; }
-  .hero-stats { gap: 0.8rem; }
 }
 
 /* ---- FOOTER ---- */
